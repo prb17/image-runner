@@ -1,0 +1,6 @@
+FROM {{ pull_image }}
+ARG USERNAME={{ user_name }}
+
+RUN groupadd -r ${USERNAME} && useradd -r -m -g ${USERNAME} ${USERNAME}
+WORKDIR /home/${USERNAME}
+USER ${USERNAME}
