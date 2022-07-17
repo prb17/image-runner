@@ -15,7 +15,7 @@ def get_args():
     parser = argparse.ArgumentParser()
     parser.add_argument('-i', '--base-image', required=True, help='Desired image to pull')
     parser.add_argument('-r', '--registry', help="Desired base image registry to pull from. Default is my github registry", default="ghcr.io/prb17")
-    parser.add_argument('-o', "--output-dir", help="desired location for the generated Dockerfile. Default is this current directory", default="./")
+    parser.add_argument('-o', "--output-dir", help="desired location for the generated Dockerfile and docker-compose file. Default is this current directory", default="./")
     parser.add_argument('-u', "--user", help="name of the user to be created in the image", default="img-rnr")
     parser.add_argument('-l', "--log-level", choices=list(log_values.keys()), help="desired level of logging", default="info")
     args = parser.parse_args()
