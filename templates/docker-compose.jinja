@@ -1,7 +1,17 @@
 version: "3"
 services:
   runner:
-    image: {{ pull_image }}
-    build: .
+    image: {{ local_image_name }}
+    build: 
+        context: {{ docker_context }}
+        args:
+            USER_NAME: {{ user_name }}
+            USER_ID: {{ user_id }}
+            GROUP_ID: {{ group_id }}
+    container_name: {{ base_image }}
+    hostname: {{ base_image }}
+    command: /bin/bash
+    stdin_open: true
+    tty: true
     volumes:
       - ${HOME}:/home/{{ user_name }}

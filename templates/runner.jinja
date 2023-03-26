@@ -1,0 +1,4 @@
+#!/bin/bash
+
+docker-compose -f {{ docker_context }}./docker-compose.yml build runner
+docker-compose -f {{ docker_context }}./docker-compose.yml run --rm runner

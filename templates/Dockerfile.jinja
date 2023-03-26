@@ -1,6 +1,8 @@
 FROM {{ pull_image }}
-ARG USERNAME={{ user_name }}
+ARG USER_NAME
+ARG USER_ID
+ARG GROUP_ID
 
-RUN groupadd -r ${USERNAME} && useradd -r -m -g ${USERNAME} ${USERNAME}
-WORKDIR /home/${USERNAME}
-USER ${USERNAME}
+RUN groupadd -o -g ${GROUP_ID} -r ${USER_NAME} && useradd -u ${USER_ID} -r -m -g ${USER_NAME} ${USER_NAME}
+WORKDIR /home/${USER_NAME}
+USER ${USER_NAME}
