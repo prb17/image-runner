@@ -3,7 +3,7 @@ services:
   runner:
     image: {{ local_image_name }}
     build: 
-        context: {{ docker_context }}
+        context: . 
         args:
             USER_NAME: {{ user_name }}
             USER_ID: {{ user_id }}
