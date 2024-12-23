@@ -3,6 +3,8 @@ ARG USER_NAME
 ARG USER_ID
 ARG GROUP_ID
 
-RUN groupadd -o -g ${GROUP_ID} -r ${USER_NAME} && useradd -u ${USER_ID} -r -m -g ${USER_NAME} ${USER_NAME}
+RUN deluser --remove-home ubuntu && \
+    groupadd -o -g ${GROUP_ID} -r ${USER_NAME} && \
+    useradd -u ${USER_ID} -r -m -g ${USER_NAME} ${USER_NAME}
 WORKDIR /home/${USER_NAME}
 USER ${USER_NAME}
